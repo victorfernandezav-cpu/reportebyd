@@ -126,7 +126,7 @@
         .bridge-delta-tons  { font-size: 0.9em; color: #ffd5d5; margin-top: 2px; }
 
         /* Upsides */
-        .bridge-upsides { width: 100%; margin-bottom: 6px; }
+        .bridge-upsides { width: 100%; margin-bottom: 6px; text-align: center; }
         .bridge-upside-header {
             display: inline-block;
             background: #e8f8ee;
@@ -139,7 +139,7 @@
             margin-bottom: 6px;
         }
         .bridge-upside-header span { font-size: 0.95em; }
-        .bridge-upside-items { padding-left: 10px; }
+        .bridge-upside-items { text-align: center; }
         .bridge-up-item {
             color: #1A8C4E;
             font-size: 0.95em;
@@ -147,7 +147,7 @@
         }
 
         /* Downsides */
-        .bridge-downsides { width: 100%; margin-top: 6px; }
+        .bridge-downsides { width: 100%; margin-top: 6px; text-align: center; }
         .bridge-downside-header {
             display: inline-block;
             background: #fdecec;
@@ -160,7 +160,7 @@
             margin-bottom: 6px;
         }
         .bridge-downside-header span { font-size: 0.95em; }
-        .bridge-downside-items { padding-left: 10px; }
+        .bridge-downside-items { text-align: center; }
         .bridge-dn-item {
             color: #c0392b;
             font-size: 0.95em;
@@ -214,38 +214,6 @@
             </div>
         </div>
 
-        <div class="insights">
-            <h3>💡 Hallazgos Clave</h3>
-            <ul>
-                <li><strong>Motor 2026</strong> Toppings & Icings — 58.1% de ventas totales, +26.7% vs PY</li>
-                <li><strong>Canal líder</strong> Distribuidores — 53.6% de ventas, +26.6% vs PY en valor</li>
-                <li><strong>Foco rojo</strong> Co-Packers cayó 40.2% en valor y 40.6% en volumen</li>
-                <li><strong>Lastre</strong> Mixes perdió 36.1% en valor y 39.7% en volumen vs PY</li>
-                <li><strong>Oportunidad</strong> E-commerce crece +71.8% con margen 63.4% — escalar urgente</li>
-            </ul>
-        </div>
-
-        <div class="chart-container">
-            <h2>📊 Distribución de Ventas por Segmento</h2>
-            <canvas id="salesByChannel"></canvas>
-        </div>
-
-        <div class="two-column">
-            <div class="chart-container">
-                <h2>📦 Ventas por Línea de Producto</h2>
-                <canvas id="productLines"></canvas>
-            </div>
-            <div class="chart-container">
-                <h2>🎯 Rendimiento vs Plan (AOP)</h2>
-                <canvas id="vsAOP"></canvas>
-            </div>
-        </div>
-
-        <div class="chart-container">
-            <h2>📅 Comparación Año Anterior (Ventas $M)</h2>
-            <canvas id="ytdComparison"></canvas>
-        </div>
-
         <div class="chart-container">
             <h2>📊 Sales Bridge Enero</h2>
             <div class="bridge-wrapper">
@@ -266,7 +234,6 @@
                         <div class="bridge-ep-tons">34.3 tons</div>
                         <div class="bridge-ep-label">YTD 2024</div>
                     </div>
-
                     <div class="bridge-line-area">
                         <div class="bridge-line"></div>
                         <div class="bridge-delta">
@@ -274,7 +241,6 @@
                             <div class="bridge-delta-tons">−7.4 tons</div>
                         </div>
                     </div>
-
                     <div class="bridge-endpoint bridge-act">
                         <div class="bridge-ep-value">$2,212,179</div>
                         <div class="bridge-ep-tons">26.9 tons</div>
@@ -295,6 +261,49 @@
             </div>
         </div>
 
+        <div class="chart-container">
+            <h2>📈 Margen Bruto % por Línea de Producto</h2>
+            <canvas id="margins"></canvas>
+        </div>
+
+        <div class="chart-container">
+            <h2>📊 Distribución de Ventas por Segmento</h2>
+            <canvas id="salesByChannel"></canvas>
+        </div>
+
+        <div class="two-column">
+            <div class="chart-container">
+                <h2>📦 Ventas por Línea de Producto</h2>
+                <canvas id="productLines"></canvas>
+            </div>
+            <div class="chart-container">
+                <h2>🎯 Rendimiento vs Plan (AOP)</h2>
+                <canvas id="vsAOP"></canvas>
+            </div>
+        </div>
+
+        <div class="two-column">
+            <div class="chart-container">
+                <h2>📅 Comparación Año Anterior — Segmentos ($M)</h2>
+                <canvas id="ytdSegmentos"></canvas>
+            </div>
+            <div class="chart-container">
+                <h2>📅 Comparación Año Anterior — Líneas ($M)</h2>
+                <canvas id="ytdLineas"></canvas>
+            </div>
+        </div>
+
+        <div class="insights">
+            <h3>💡 Hallazgos Clave</h3>
+            <ul>
+                <li><strong>Motor 2026</strong> Toppings & Icings — 58.1% de ventas totales, +26.7% vs PY</li>
+                <li><strong>Canal líder</strong> Distribuidores — 53.6% de ventas, +26.6% vs PY en valor</li>
+                <li><strong>Foco rojo</strong> Co-Packers cayó 40.2% en valor y 40.6% en volumen</li>
+                <li><strong>Lastre</strong> Mixes perdió 36.1% en valor y 39.7% en volumen vs PY</li>
+                <li><strong>Oportunidad</strong> E-commerce crece +71.8% con margen 63.4% — escalar urgente</li>
+            </ul>
+        </div>
+
         <div class="action-items">
             <h3>🎯 Plan de Acción Recomendado</h3>
             <ol>
@@ -305,11 +314,6 @@
                 <li><strong>Optimizar</strong> Fillings & Glazes: margen bueno (39.8%), rotación débil. Revisar precios y activaciones.</li>
                 <li><strong>Revisar</strong> Pausa en Amazon — analizar si optimizar comisiones o explorar plataformas alternativas.</li>
             </ol>
-        </div>
-
-        <div class="chart-container">
-            <h2>📈 Margen Bruto % por Línea de Producto</h2>
-            <canvas id="margins"></canvas>
         </div>
     </div>
 </div>
@@ -377,13 +381,31 @@
     });
 
     // YTD comparativo
-    new Chart(document.getElementById('ytdComparison'), {
+    // Comparación por Segmentos
+    new Chart(document.getElementById('ytdSegmentos'), {
         type: 'bar',
         data: {
-            labels: ['Total', 'Distribuidor', 'Toppings', 'E-Commerce', 'Food Service', 'Mixes', 'Co-Packers'],
+            labels: ['Distribuidor', 'Co-Packers', 'Food Service', 'Retailer', 'E-Commerce'],
             datasets: [
-                { label: 'Ene 2025 ($M)', data: [2.31, 0.94, 1.01, 0.02, 0.13, 0.94, 1.08], backgroundColor: '#f8d96e', borderRadius: 6 },
-                { label: 'Ene 2026 ($M)', data: [2.21, 1.19, 1.29, 0.04, 0.20, 0.60, 0.64], backgroundColor: '#013352', borderRadius: 6 }
+                { label: 'Ene 2025 ($M)', data: [0.94, 1.08, 0.13, 0.15, 0.02], backgroundColor: '#f8d96e', borderRadius: 6 },
+                { label: 'Ene 2026 ($M)', data: [1.19, 0.64, 0.20, 0.15, 0.04], backgroundColor: '#013352', borderRadius: 6 }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { position: 'top' } },
+            scales: { y: { beginAtZero: true, ticks: { callback: v => '$' + v + 'M' } } }
+        }
+    });
+
+    // Comparación por Líneas de Producto
+    new Chart(document.getElementById('ytdLineas'), {
+        type: 'bar',
+        data: {
+            labels: ['Toppings & Icings', 'Mixes', 'Fillings & Glazes', 'Beverages'],
+            datasets: [
+                { label: 'Ene 2025 ($M)', data: [1.01, 0.94, 0.32, 0.01], backgroundColor: '#f8d96e', borderRadius: 6 },
+                { label: 'Ene 2026 ($M)', data: [1.29, 0.60, 0.30, 0.02], backgroundColor: '#013352', borderRadius: 6 }
             ]
         },
         options: {

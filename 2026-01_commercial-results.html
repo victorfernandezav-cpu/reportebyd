@@ -46,7 +46,9 @@
             margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             border-left: 5px solid #F8BF07;
         }
-        .chart-container h2 { color: #013352; margin-bottom: 20px; font-size: 1.4em; }
+        .chart-container h2 { color: #013352; margin-bottom: 20px; font-size: 1.25em; font-weight: 700; letter-spacing: 0.3px; }
+        .insights h3, .action-items h3 { font-size: 1.15em; letter-spacing: 0.5px; }
+        .closing-card h3 { font-size: 0.85em; }
         .insights {
             background: #fff9e6; border-left: 5px solid #F8BF07;
             padding: 20px; margin: 30px 0; border-radius: 10px;
@@ -167,6 +169,24 @@
             padding: 3px 0;
         }
         .bridge-tons { color: inherit; opacity: 0.8; font-size: 0.9em; }
+        .metric-card .change.neg-text { color: #c0392b; }
+
+        /* ===== INSIGHT BANNER ===== */
+        .insight-banner {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: #fff9e6;
+            border-left: 5px solid #F8BF07;
+            border-radius: 10px;
+            padding: 18px 24px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(1,51,82,0.07);
+        }
+        .insight-icon { font-size: 1.8em; line-height: 1; }
+        .insight-label { font-size: 0.75em; text-transform: uppercase; letter-spacing: 1.5px; color: #013352; font-weight: 700; margin-bottom: 4px; }
+        .insight-text { font-size: 1em; color: #013352; line-height: 1.6; }
+
         /* ===== EXECUTIVE SNAPSHOT ===== */
         .exec-snapshot {
             background: linear-gradient(135deg, #01243D 0%, #013352 100%);
@@ -244,54 +264,46 @@
     <div class="dashboard">
         <div class="divider"></div>
 
-        <!-- EXECUTIVE SNAPSHOT -->
-        <div class="exec-snapshot">
-            <div class="exec-kpi">
-                <div class="exec-kpi-label">Ventas vs AOP</div>
-                <div class="exec-kpi-value">−4.7%</div>
-                <div class="exec-kpi-sub neg">$110K bajo plan</div>
-            </div>
-            <div class="exec-kpi">
-                <div class="exec-kpi-label">Ventas vs SOP</div>
-                <div class="exec-kpi-value">−4.4%</div>
-                <div class="exec-kpi-sub neg">$101K bajo año anterior</div>
-            </div>
-            <div class="exec-kpi">
-                <div class="exec-kpi-label">Margen Bruto</div>
-                <div class="exec-kpi-value">36.5%</div>
-                <div class="exec-kpi-sub neu">−0.5 pts vs PY · Estable</div>
-            </div>
-            <div class="exec-insight">
-                <div class="exec-insight-label">⚡ Insight Clave</div>
-                <div class="exec-insight-text">Distribuidores y Toppings sostienen el negocio, pero la caída de Co-Packers (−40%) y Mixes (−36%) compromete el volumen total — recuperar ambos es prioridad inmediata.</div>
-            </div>
-        </div>
-
+        <!-- TARJETAS EJECUTIVAS -->
         <div class="metrics-grid">
             <div class="metric-card">
                 <h3>Ventas Totales MXN</h3>
                 <div class="value">$2.21M</div>
-                <div class="change">-4.4% vs año anterior · -4.7% vs AOP</div>
+                <div class="change">-4.4% vs año anterior</div>
+            </div>
+            <div class="metric-card">
+                <h3>Ventas vs AOP</h3>
+                <div class="value">−4.7%</div>
+                <div class="change neg-text">$110K bajo plan</div>
+            </div>
+            <div class="metric-card">
+                <h3>Ventas vs SOP</h3>
+                <div class="value">−4.4%</div>
+                <div class="change neg-text">$101K bajo año anterior</div>
             </div>
             <div class="metric-card">
                 <h3>Margen Bruto</h3>
                 <div class="value">36.5%</div>
-                <div class="change">-0.5 pts vs PY — bien protegido</div>
+                <div class="change">−0.5 pts vs PY · Estable</div>
             </div>
             <div class="metric-card">
                 <h3>Volumen Total</h3>
                 <div class="value">26.9 tons</div>
-                <div class="change">-21.5% vs año anterior</div>
+                <div class="change neg-text">−21.5% vs año anterior</div>
             </div>
-            <div class="metric-card">
-                <h3>Ganancia Bruta</h3>
-                <div class="value">$807K</div>
-                <div class="change">Enero 2026</div>
+        </div>
+
+        <!-- INSIGHT CLAVE -->
+        <div class="insight-banner">
+            <span class="insight-icon">⚡</span>
+            <div>
+                <div class="insight-label">Insight Clave</div>
+                <div class="insight-text">Distribuidores y Toppings sostienen el negocio, pero la caída de Co-Packers (−40%) y Mixes (−36%) compromete el volumen total — recuperar ambos es prioridad inmediata.</div>
             </div>
         </div>
 
         <div class="chart-container">
-            <h2>📊 Sales Bridge Enero</h2>
+            <h2>↔ Sales Bridge · Enero</h2>
             <div class="bridge-wrapper">
 
                 <!-- Upsides (arriba) -->
@@ -338,39 +350,34 @@
         </div>
 
         <div class="chart-container">
-            <h2>📈 Margen Bruto % por Línea de Producto</h2>
-            <canvas id="margins"></canvas>
-        </div>
-
-        <div class="chart-container">
-            <h2>📊 Distribución de Ventas por Segmento</h2>
+            <h2>◉ Distribución de Ventas por Segmento</h2>
             <canvas id="salesByChannel"></canvas>
         </div>
 
         <div class="two-column">
             <div class="chart-container">
-                <h2>📦 Ventas por Línea de Producto</h2>
+                <h2>▤ Ventas por Línea de Producto</h2>
                 <canvas id="productLines"></canvas>
             </div>
             <div class="chart-container">
-                <h2>🎯 Rendimiento vs Plan (AOP)</h2>
+                <h2>◎ Rendimiento vs Plan (AOP)</h2>
                 <canvas id="vsAOP"></canvas>
             </div>
         </div>
 
         <div class="two-column">
             <div class="chart-container">
-                <h2>📅 Comparación Año Anterior — Segmentos ($M)</h2>
+                <h2>↺ Comparación Año Anterior — Segmentos</h2>
                 <canvas id="ytdSegmentos"></canvas>
             </div>
             <div class="chart-container">
-                <h2>📅 Comparación Año Anterior — Líneas ($M)</h2>
+                <h2>↺ Comparación Año Anterior — Líneas de Producto</h2>
                 <canvas id="ytdLineas"></canvas>
             </div>
         </div>
 
         <div class="insights">
-            <h3>💡 Hallazgos Clave</h3>
+            <h3>◆ Hallazgos Clave</h3>
             <ul>
                 <li><strong>Motor 2026</strong> Toppings & Icings — 58.1% de ventas totales, +26.7% vs PY</li>
                 <li><strong>Canal líder</strong> Distribuidores — 53.6% de ventas, +26.6% vs PY en valor</li>
@@ -381,7 +388,7 @@
         </div>
 
         <div class="action-items">
-            <h3>🎯 Plan de Acción Recomendado</h3>
+            <h3>▶ Plan de Acción</h3>
             <ol>
                 <li><strong>Urgente</strong> Recuperar Co-Packers (-40%). Visitas inmediatas a clientes clave incluyendo Cinépolis.</li>
                 <li><strong>Revitalizar</strong> Mixes tiene margen sano (42.7%) pero cae en volumen. Evaluar portafolio y renovar oferta.</li>
@@ -395,7 +402,7 @@
         <!-- CIERRE EJECUTIVO -->
         <div class="closing-grid">
             <div class="closing-card decisiones">
-                <h3>✅ 3 Decisiones</h3>
+                <h3>● Decisiones</h3>
                 <ol>
                     <li>Priorizar recuperación de Co-Packers — asignar ejecutivo de cuenta dedicado.</li>
                     <li>Pausar SKUs de Mixes con baja rotación y bajo margen — reducir portafolio.</li>
@@ -403,7 +410,7 @@
                 </ol>
             </div>
             <div class="closing-card riesgos">
-                <h3>⚠️ 3 Riesgos</h3>
+                <h3>△ Riesgos</h3>
                 <ol>
                     <li>Pérdida permanente de Cinépolis si no se reactiva antes de cierre de Q1.</li>
                     <li>Erosión de margen si se ofrecen descuentos para recuperar volumen en Co-Packers.</li>
@@ -411,7 +418,7 @@
                 </ol>
             </div>
             <div class="closing-card acciones">
-                <h3>🚀 3 Acciones Febrero</h3>
+                <h3>→ Acciones Febrero</h3>
                 <ol>
                     <li>Ejecutar las 7 capacitaciones programadas con chefs — activar canal Distribuidor.</li>
                     <li>Reunión con Cinépolis esta semana — propuesta de reactivación con nuevo portafolio.</li>
@@ -517,26 +524,6 @@
             responsive: true,
             plugins: { legend: { position: 'top' } },
             scales: { y: { beginAtZero: true, ticks: { callback: v => '$' + v + 'M' } } }
-        }
-    });
-
-    // Márgenes por LÍNEA
-    new Chart(document.getElementById('margins'), {
-        type: 'bar',
-        data: {
-            labels: ['Beverages', 'Mixes', 'Fillings & Glazes', 'Toppings & Icings'],
-            datasets: [{ 
-                label: 'Margen Bruto (%)',
-                data: [52.5, 42.7, 39.8, 32.5],
-                backgroundColor: ['#013352','#024a6e','#F8BF07','#f8d96e'],
-                borderRadius: 8
-            }]
-        },
-        options: {
-            responsive: true,
-            indexAxis: 'y',
-            plugins: { legend: { display: false } },
-            scales: { x: { beginAtZero: true, max: 65, ticks: { callback: v => v + '%' } } }
         }
     });
 </script>
